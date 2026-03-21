@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Phone, Calendar } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Calendar, LogIn } from "lucide-react";
 import { SITE_CONFIG, NAV_LINKS, SERVICES } from "@/lib/constants";
 
 export default function Header() {
@@ -22,10 +22,17 @@ export default function Header() {
             <span className="hidden sm:inline text-navy-300">|</span>
             <span className="hidden sm:inline text-navy-200">{SITE_CONFIG.email}</span>
           </div>
-          <Link href="/book" className="flex items-center gap-1 hover:text-teal-300 transition-colors">
-            <Calendar className="w-3 h-3" />
-            Free Consultation
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/portal" className="flex items-center gap-1 hover:text-teal-300 transition-colors">
+              <LogIn className="w-3 h-3" />
+              Client Portal
+            </Link>
+            <span className="text-navy-300">|</span>
+            <Link href="/book" className="flex items-center gap-1 hover:text-teal-300 transition-colors">
+              <Calendar className="w-3 h-3" />
+              Free Consultation
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -90,6 +97,9 @@ export default function Header() {
 
             {/* CTA */}
             <div className="hidden lg:flex items-center gap-3">
+              <Link href="/portal" className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-teal-500 font-medium transition-colors">
+                <LogIn className="w-4 h-4" /> Client Portal
+              </Link>
               <a href={`tel:${SITE_CONFIG.phone}`} className="btn-outline text-sm py-2 px-4">
                 <Phone className="w-4 h-4 mr-1" /> Call Now
               </a>
@@ -147,6 +157,13 @@ export default function Header() {
                   </Link>
                 )
               )}
+              <Link
+                href="/portal"
+                className="block px-3 py-3 text-teal-600 font-semibold hover:text-teal-500"
+                onClick={() => setMobileOpen(false)}
+              >
+                <LogIn className="w-4 h-4 inline mr-1" /> Client Portal
+              </Link>
               <div className="flex flex-col gap-2 mt-4 px-3">
                 <a href={`tel:${SITE_CONFIG.phone}`} className="btn-outline text-center">
                   <Phone className="w-4 h-4 mr-1" /> Call Now

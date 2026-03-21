@@ -3,8 +3,10 @@ export const SITE_CONFIG = {
   tagline: "Licensed. Authorized. Local.",
   owner: "Joseph Gasana",
   credential: "IRS Enrolled Agent",
+  education: "Master's Degree, University of Arizona",
   licenseNo: "00153835-EA",
   enrolledDate: "September 21, 2023",
+  languages: ["English", "Kinyarwanda", "Swahili", "French"],
   phone: "(555) 000-0000", // Replace with actual phone
   email: "info@cleartaxsolutions.com",
   address: {
@@ -95,9 +97,9 @@ export const NAV_LINKS = [
 
 export const TRUST_SIGNALS = [
   "IRS Licensed Enrolled Agent",
-  "15+ Free Tax Calculators",
+  "Master's Degree — University of Arizona",
   "Audit Representation Authorized",
-  "All 50 States Covered",
+  "Multilingual: English, Kinyarwanda, Swahili, French",
 ] as const;
 
 export const SERVICE_CATEGORIES = [

@@ -72,15 +72,31 @@ export default function RootLayout({
                 "@type": "Person",
                 name: "Joseph Gasana",
                 jobTitle: "IRS Enrolled Agent",
-                hasCredential: {
-                  "@type": "EducationalOccupationalCredential",
-                  credentialCategory: "IRS Enrolled Agent",
-                  validFrom: "2023-09-21",
-                  recognizedBy: {
-                    "@type": "Organization",
-                    name: "Internal Revenue Service",
-                  },
+                alumniOf: {
+                  "@type": "CollegeOrUniversity",
+                  name: "University of Arizona",
                 },
+                knowsLanguage: ["English", "Kinyarwanda", "Swahili", "French"],
+                hasCredential: [
+                  {
+                    "@type": "EducationalOccupationalCredential",
+                    credentialCategory: "IRS Enrolled Agent",
+                    validFrom: "2023-09-21",
+                    recognizedBy: {
+                      "@type": "Organization",
+                      name: "Internal Revenue Service",
+                    },
+                  },
+                  {
+                    "@type": "EducationalOccupationalCredential",
+                    credentialCategory: "Master's Degree",
+                    educationalLevel: "Master's",
+                    recognizedBy: {
+                      "@type": "CollegeOrUniversity",
+                      name: "University of Arizona",
+                    },
+                  },
+                ],
               },
               areaServed: "US",
               priceRange: "$$",

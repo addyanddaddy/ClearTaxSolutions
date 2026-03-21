@@ -98,6 +98,10 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-2 text-navy-100">
                 <p className="flex items-center gap-2 justify-center lg:justify-start">
+                  <GraduationCap className="w-5 h-5 text-teal-400 flex-shrink-0" />
+                  {SITE_CONFIG.education}
+                </p>
+                <p className="flex items-center gap-2 justify-center lg:justify-start">
                   <BadgeCheck className="w-5 h-5 text-teal-400 flex-shrink-0" />
                   License No. {SITE_CONFIG.licenseNo}
                 </p>
@@ -448,26 +452,40 @@ export default function AboutPage() {
                   {SITE_CONFIG.owner}
                 </h2>
                 <p className="mt-1 text-teal-500 font-medium">
-                  {SITE_CONFIG.credential} | License No. {SITE_CONFIG.licenseNo}
+                  {SITE_CONFIG.credential} | {SITE_CONFIG.education}
+                </p>
+                <p className="mt-1 text-gray-500 text-sm">
+                  License No. {SITE_CONFIG.licenseNo}
                 </p>
 
                 <div className="mt-6 space-y-4 text-gray-700 leading-relaxed">
                   <p>
-                    Joseph Gasana is a federally licensed IRS Enrolled Agent and
-                    the founder of Clear Tax Solutions. With a deep commitment to
+                    Joseph Gasana is a federally licensed IRS Enrolled Agent,
+                    holds a <strong>Master&apos;s degree from the University of Arizona</strong>,
+                    and is the founder of Clear Tax Solutions. With a deep commitment to
                     helping individuals and businesses navigate the complexities
                     of the U.S. tax system, Joseph provides expert tax
                     preparation, strategic tax planning, and full-scope IRS
                     representation services.
                   </p>
                   <p>
+                    Originally from East Africa, Joseph brings a unique
+                    perspective to tax services. He understands the specific
+                    challenges faced by immigrant families, international
+                    workers, and small business owners building new lives in
+                    the United States. He is fluent in <strong>English,
+                    Kinyarwanda, Swahili, and French</strong>, and is proud to
+                    serve the East African and broader African diaspora
+                    community alongside all clients who need expert tax help.
+                  </p>
+                  <p>
                     After earning his Enrolled Agent designation by passing the
                     IRS Special Enrollment Examination — a rigorous three-part
                     exam covering individual taxation, business taxation, and IRS
-                    representation, ethics, and procedures — Joseph has dedicated
-                    his career to providing personalized, high-quality tax
-                    services that prioritize compliance, accuracy, and maximum
-                    tax savings.
+                    representation, ethics, and procedures — Joseph combines his
+                    advanced education with his EA credential to deliver
+                    personalized, high-quality tax services that prioritize
+                    compliance, accuracy, and maximum tax savings.
                   </p>
                   <p>
                     As an Enrolled Agent, Joseph holds the highest credential the
@@ -480,7 +498,7 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
                   <div className="bg-white rounded-lg p-4 text-center border border-gray-100">
                     <p className="text-2xl font-bold text-teal-500">50</p>
                     <p className="text-sm text-gray-500">States Covered</p>
@@ -488,6 +506,10 @@ export default function AboutPage() {
                   <div className="bg-white rounded-lg p-4 text-center border border-gray-100">
                     <p className="text-2xl font-bold text-teal-500">7+</p>
                     <p className="text-sm text-gray-500">Service Areas</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 text-center border border-gray-100">
+                    <p className="text-2xl font-bold text-teal-500">4</p>
+                    <p className="text-sm text-gray-500">Languages</p>
                   </div>
                   <div className="bg-white rounded-lg p-4 text-center border border-gray-100">
                     <p className="text-2xl font-bold text-teal-500">100%</p>
@@ -498,6 +520,68 @@ export default function AboutPage() {
                 <div className="mt-8">
                   <Link href="/book" className="btn-primary">
                     Book a Free Consultation
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== COMMUNITY & LANGUAGES ===== */}
+      <section className="bg-white">
+        <div className="section-padding">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-teal-500 font-semibold text-sm uppercase tracking-wider">
+                Serving Our Community
+              </span>
+              <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-navy-500">
+                Tax Help in Your Language
+              </h2>
+              <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
+                We proudly serve clients from all backgrounds. Joseph speaks
+                multiple languages and understands the unique tax needs of
+                immigrant families, international workers, and first-generation
+                business owners.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              {SITE_CONFIG.languages.map((lang) => (
+                <div
+                  key={lang}
+                  className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100 hover:border-teal-300 transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center mx-auto mb-3">
+                    <span className="text-teal-500 text-xl">
+                      {lang === "English" ? "EN" : lang === "Kinyarwanda" ? "RW" : lang === "Swahili" ? "SW" : "FR"}
+                    </span>
+                  </div>
+                  <p className="font-semibold text-navy-500">{lang}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-r from-teal-50 to-navy-50 rounded-xl p-8 border border-teal-100">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-navy-500 mb-2">
+                    We Understand Your Journey
+                  </h3>
+                  <p className="text-gray-600">
+                    Whether you&apos;re filing your first U.S. tax return, starting a
+                    business, sending money home, or navigating ITIN applications,
+                    Clear Tax Solutions provides expert guidance with cultural
+                    understanding. We specialize in helping the East African
+                    community and all immigrant families build financial stability
+                    in the United States.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <Link href="/book" className="btn-primary whitespace-nowrap">
+                    Schedule a Consultation
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </div>
