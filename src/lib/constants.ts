@@ -21,6 +21,7 @@ export const SITE_CONFIG = {
   },
   bookingUrl: "/book",
   ga4Id: "G-XXXXXXXXXX", // Replace with actual GA4 ID
+  metaPixelId: "XXXXXXXXXXXXXXXXX", // Replace with actual Meta Pixel ID
 } as const;
 
 export const SERVICES = [

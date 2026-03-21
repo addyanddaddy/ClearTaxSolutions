@@ -47,7 +47,7 @@ export default function Header() {
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
               {NAV_LINKS.map((link) =>
-                link.children ? (
+                'children' in link ? (
                   <div key={link.label} className="relative group">
                     <button
                       className="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-teal-500 font-medium transition-colors"
@@ -112,7 +112,7 @@ export default function Header() {
           {mobileOpen && (
             <div className="lg:hidden pb-4 border-t border-gray-100 pt-4">
               {NAV_LINKS.map((link) =>
-                link.children ? (
+                'children' in link ? (
                   <div key={link.label}>
                     <button
                       className="flex items-center justify-between w-full px-3 py-3 text-gray-700 font-medium"
