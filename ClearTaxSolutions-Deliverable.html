@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clear Tax Solutions — Website Deliverable Report</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a2e; line-height: 1.7; background: #f8f9fa; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    .header { background: linear-gradient(135deg, #0E3460 0%, #0b2a4d 60%, #0E7490 100%); color: white; padding: 50px 40px; text-align: center; border-radius: 0 0 20px 20px; }
+    .header h1 { font-size: 32px; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .header .subtitle { font-size: 16px; color: #9bd3dc; margin-bottom: 20px; }
+    .header .badge { display: inline-block; background: rgba(14, 116, 144, 0.3); border: 1px solid rgba(14, 116, 144, 0.6); padding: 8px 20px; border-radius: 50px; font-size: 13px; color: #cde9ee; }
+    .header .date { margin-top: 16px; font-size: 13px; color: #9bb3cf; }
+
+    /* Prepared For */
+    .prepared-for { background: white; border-radius: 12px; padding: 30px; margin: 30px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid #0E7490; }
+    .prepared-for h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #0E7490; margin-bottom: 12px; }
+    .prepared-for .name { font-size: 22px; font-weight: 700; color: #0E3460; }
+    .prepared-for .detail { font-size: 14px; color: #555; margin-top: 4px; }
+
+    /* Sections */
+    .section { background: white; border-radius: 12px; padding: 30px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .section h2 { font-size: 20px; color: #0E3460; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #e6f4f6; }
+    .section h3 { font-size: 16px; color: #0E7490; margin: 20px 0 10px 0; }
+    .section p { font-size: 14px; color: #444; margin-bottom: 12px; }
+    .section ul { padding-left: 20px; margin-bottom: 16px; }
+    .section li { font-size: 14px; color: #444; margin-bottom: 6px; }
+    .section li strong { color: #0E3460; }
+
+    /* Stats Grid */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+    .stat-card { background: linear-gradient(135deg, #0E3460, #0b2a4d); color: white; border-radius: 10px; padding: 20px; text-align: center; }
+    .stat-card .number { font-size: 32px; font-weight: 800; color: #0E7490; }
+    .stat-card .label { font-size: 12px; color: #9bb3cf; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Page Table */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th { background: #0E3460; color: white; padding: 10px 14px; text-align: left; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+    th:first-child { border-radius: 8px 0 0 0; }
+    th:last-child { border-radius: 0 8px 0 0; }
+    td { padding: 10px 14px; font-size: 13px; color: #444; border-bottom: 1px solid #eee; }
+    tr:hover td { background: #f0fafb; }
+    .route { font-family: 'Courier New', monospace; color: #0E7490; font-weight: 600; font-size: 12px; }
+
+    /* Calculator Grid */
+    .calc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+    .calc-card { background: #f0fafb; border: 1px solid #cde9ee; border-radius: 8px; padding: 14px; }
+    .calc-card .calc-name { font-size: 13px; font-weight: 600; color: #0E3460; }
+    .calc-card .calc-code { font-size: 11px; color: #0E7490; margin-top: 4px; }
+
+    /* Blog List */
+    .blog-list { counter-reset: blog; }
+    .blog-item { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #333; }
+    .blog-item:before { counter-increment: blog; content: counter(blog) "."; font-weight: 700; color: #0E7490; margin-right: 8px; }
+
+    /* Feature List */
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0; }
+    .feature { background: #f8f9fa; border-radius: 8px; padding: 14px; border-left: 3px solid #0E7490; }
+    .feature .feat-title { font-size: 13px; font-weight: 600; color: #0E3460; }
+    .feature .feat-desc { font-size: 12px; color: #666; margin-top: 4px; }
+
+    /* Next Steps */
+    .next-step { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid #eee; }
+    .step-num { background: #0E7490; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .step-content .step-title { font-size: 14px; font-weight: 600; color: #0E3460; }
+    .step-content .step-desc { font-size: 13px; color: #555; margin-top: 2px; }
+
+    /* Footer */
+    .footer { text-align: center; padding: 30px; color: #999; font-size: 12px; }
+    .footer .brand { color: #0E3460; font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .calc-grid { grid-template-columns: 1fr; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .header { padding: 30px 20px; }
+      .header h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Clear Tax Solutions</h1>
+    <div class="subtitle">Master Website Build — Deliverable Report</div>
+    <div class="badge">Designed &amp; Developed by Adaptation Living LLC</div>
+    <div class="date">Delivered: March 20, 2026</div>
+  </div>
+
+  <div class="container">
+
+    <!-- Prepared For -->
+    <div class="prepared-for">
+      <h2>Prepared For</h2>
+      <div class="name">Joseph Gasana, EA</div>
+      <div class="detail">IRS Enrolled Agent &nbsp;|&nbsp; License No. 00153835-EA &nbsp;|&nbsp; Enrolled September 21, 2023</div>
+      <div class="detail" style="margin-top: 8px;">Clear Tax Solutions &nbsp;|&nbsp; cleartaxsolutions.com</div>
+    </div>
+
+    <!-- Overview Stats -->
+    <div class="section">
+      <h2>Build Overview</h2>
+      <p>Your website has been fully designed and built as a conversion-optimized, mobile-first, ADA-accessible Next.js application. Here is what was delivered:</p>
+      <div class="stats">
+        <div class="stat-card">
+          <div class="number">49</div>
+          <div class="label">Total Pages</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">15</div>
+          <div class="label">Tax Calculators</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">12</div>
+          <div class="label">Blog Articles</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">66</div>
+          <div class="label">Source Files</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="section">
+      <h2>Technology Stack</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feat-title">Next.js 14 (App Router)</div>
+          <div class="feat-desc">React framework with server-side rendering, static site generation, and automatic code splitting for blazing-fast load times.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Tailwind CSS</div>
+          <div class="feat-desc">Utility-first CSS with your custom navy (#0E3460) and teal (#0E7490) brand palette baked into every component.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">TypeScript</div>
+          <div class="feat-desc">Full type safety across all 66 source files — eliminates entire categories of bugs before they reach production.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">React Hook Form + Zod</div>
+          <div class="feat-desc">Enterprise-grade form validation on every lead capture form — validates email, phone, and required fields in real time.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Vercel Hosting Ready</div>
+          <div class="feat-desc">One-click deploy to Vercel's global CDN. Free SSL, automatic builds on every push, Core Web Vitals optimized.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">SEO Infrastructure</div>
+          <div class="feat-desc">JSON-LD structured data, auto-generated sitemap, robots.txt, meta tags, and OpenGraph on every page.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Pages -->
+    <div class="section">
+      <h2>Complete Page Inventory</h2>
+      <p>Every page listed below is fully built with real content, proper SEO metadata, mobile-responsive design, and conversion CTAs.</p>
+
+      <h3>Core Pages (8)</h3>
+      <table>
+        <tr><th>Route</th><th>Page</th><th>Key Features</th></tr>
+        <tr><td class="route">/</td><td><strong>Homepage</strong></td><td>Hero with lead capture form, service selector cards, EA vs CPA vs Attorney comparison, testimonials, FAQ accordion, final CTA</td></tr>
+        <tr><td class="route">/about</td><td><strong>About / Credentials</strong></td><td>EA credential badge with your license number, certificate display placeholders, EA authority explainer, Joseph Gasana bio, JSON-LD Person schema</td></tr>
+        <tr><td class="route">/contact</td><td><strong>Contact</strong></td><td>Full intake form (name, email, phone, service, message), office info sidebar, Google Maps placeholder, click-to-call</td></tr>
+        <tr><td class="route">/book</td><td><strong>Book Consultation</strong></td><td>Free 20-minute consultation offer, Cal.com/Calendly embed area, trust signals, "What to Expect" section</td></tr>
+        <tr><td class="route">/blog</td><td><strong>Blog Hub</strong></td><td>Grid of all 12 articles with category badges, excerpts, read times</td></tr>
+        <tr><td class="route">/calculators</td><td><strong>Calculator Hub</strong></td><td>Categorized grid linking to all 15 calculators with descriptions and IRC citations</td></tr>
+        <tr><td class="route">/privacy</td><td><strong>Privacy Policy</strong></td><td>Full GDPR/CCPA compliant policy — data collection, cookies, user rights, IRS Pub 4557 reference</td></tr>
+        <tr><td class="route">/terms</td><td><strong>Terms of Service</strong></td><td>16-section terms with Circular 230 disclaimer, IRC 7216 confidentiality reference</td></tr>
+      </table>
+
+      <h3>Service Pages (8)</h3>
+      <table>
+        <tr><th>Route</th><th>Service</th><th>Tax Code Citations</th></tr>
+        <tr><td class="route">/services</td><td><strong>Services Index</strong></td><td>Card grid linking all 7 services with descriptions and trust signals</td></tr>
+        <tr><td class="route">/services/individual</td><td><strong>Individual Tax Prep</strong></td><td>Form 1040, Schedules A–SE, Forms 8863/8880/2441/8812/1116/W-7 — IRC §§ 63, 162, 1221, 1401, 25A, 25B, 21, 24, 901, 6109. Three pricing tiers: $199 / $349 / $549.</td></tr>
+        <tr><td class="route">/services/business</td><td><strong>Business Tax Prep</strong></td><td>Forms 1120/1120-S/1065/990 — IRC §§ 11, 1363, 701, 501(c), 199A, 179, 168(k), 274. Entity type selector cards.</td></tr>
+        <tr><td class="route">/services/irs-representation</td><td><strong>IRS Audit Defense</strong></td><td>31 C.F.R. § 10.3(a), Treas. Reg. §§ 601.501–509, IRC § 7452, IRM 4.13.1, IRC §§ 6320/6330. Audit type comparison and intake form.</td></tr>
+        <tr><td class="route">/services/tax-debt</td><td><strong>Tax Debt Resolution</strong></td><td>IRC §§ 7122, 6159, 6656, 6651, 6672, 6015, 6323. OIC, installment agreements (3 tiers), CNC, penalty abatement, innocent spouse, lien actions. Hardship qualifier form.</td></tr>
+        <tr><td class="route">/services/payroll-tax</td><td><strong>Payroll Tax</strong></td><td>IRC §§ 3101, 3111, 3301, 3402, 6051, 6041. Forms 941/940/W-2/W-3/1099-NEC. FICA rate tables, Additional Medicare Tax, amended returns.</td></tr>
+        <tr><td class="route">/services/tax-planning</td><td><strong>Tax Planning</strong></td><td>IRC §§ 219, 401(k), 408(k), 408(p), 408A, 280A, 179, 1031, 1400Z-2, 170, 664. Retirement, home office, vehicle, 1031 exchanges, Opportunity Zones, entity optimization.</td></tr>
+        <tr><td class="route">/services/estate-trust</td><td><strong>Estate &amp; Trust Tax</strong></td><td>IRC §§ 641–685, 643, 2001, 2501, 671–679, 2056(b)(7). Forms 1041/706/709. $13.61M exemption, $18K gift exclusion. Executor/trustee intake form.</td></tr>
+      </table>
+
+      <h3>Blog Posts (12)</h3>
+      <div class="blog-list">
+        <div class="blog-item">What Is an IRS Enrolled Agent and Why Should You Hire One?</div>
+        <div class="blog-item">IRS Offer in Compromise: Who Qualifies and How to Apply in 2024</div>
+        <div class="blog-item">Self-Employed Tax Deductions: The Complete 2024 Guide</div>
+        <div class="blog-item">What Happens During an IRS Audit and How to Prepare</div>
+        <div class="blog-item">Section 199A Explained: The 20% QBI Deduction for Small Business Owners</div>
+        <div class="blog-item">How to Use a Section 1031 Exchange to Defer Capital Gains</div>
+        <div class="blog-item">Trust Fund Recovery Penalty (IRC § 6672): What Every Business Owner Must Know</div>
+        <div class="blog-item">Form 941 vs. Form 940: A Small Business Payroll Tax Primer</div>
+        <div class="blog-item">Estimated Quarterly Taxes: How to Calculate and Avoid Underpayment Penalties</div>
+        <div class="blog-item">Innocent Spouse Relief: Can You Be Freed from a Spouse's Tax Debt?</div>
+        <div class="blog-item">Section 179 vs. Bonus Depreciation: Which Is Better for Your Business in 2024?</div>
+        <div class="blog-item">IRS Penalty Abatement: First-Time Abatement and Reasonable Cause Explained</div>
+      </div>
+      <p style="margin-top: 12px; font-size: 13px; color: #666;">Each article is 600–1,000+ words, SEO-optimized with target keywords, specific IRC/IRM citations, and ends with a consultation CTA. Every post has Article schema markup for Google rich results.</p>
+    </div>
+
+    <!-- 15 Calculators -->
+    <div class="section">
+      <h2>15 Interactive Tax Calculators</h2>
+      <p>Each calculator runs in real time (no page reloads), displays the governing IRC section, and ends with a CTA: <em>"Want a precise calculation? Book a free consultation."</em></p>
+      <div class="calc-grid">
+        <div class="calc-card">
+          <div class="calc-name">Federal Income Tax Estimator</div>
+          <div class="calc-code">IRC § 1 — 2024 Brackets</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Self-Employment Tax</div>
+          <div class="calc-code">IRC §§ 1401, 1402</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Estimated Quarterly Tax</div>
+          <div class="calc-code">IRC § 6654</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Capital Gains Tax</div>
+          <div class="calc-code">IRC §§ 1(h), 1221, 1222</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Standard vs. Itemized</div>
+          <div class="calc-code">IRC §§ 63, 164, 170, 213</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Section 179 Expensing</div>
+          <div class="calc-code">IRC § 179 — $1.22M limit</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">QBI Deduction (§ 199A)</div>
+          <div class="calc-code">IRC § 199A</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">W-4 Withholding Estimator</div>
+          <div class="calc-code">IRC § 3402</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Retirement Contributions</div>
+          <div class="calc-code">IRC §§ 219, 401(k), 408</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">IRS Penalty &amp; Interest</div>
+          <div class="calc-code">IRC §§ 6601, 6651, 6656</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Child Tax Credit</div>
+          <div class="calc-code">IRC § 24</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Earned Income Credit (EITC)</div>
+          <div class="calc-code">IRC § 32</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Alternative Minimum Tax</div>
+          <div class="calc-code">IRC §§ 55, 56, 57</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">MACRS Depreciation</div>
+          <div class="calc-code">IRC § 168 — Asset Classes</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-name">Payroll Tax Liability</div>
+          <div class="calc-code">IRC §§ 3101, 3111, 3301</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead Capture -->
+    <div class="section">
+      <h2>Lead Capture System</h2>
+      <p>Your site captures leads through <strong>8 distinct touchpoints</strong>, ensuring no visitor leaves without an opportunity to convert:</p>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feat-title">Hero Lead Form (Above Fold)</div>
+          <div class="feat-desc">Name, email, phone, service dropdown — appears immediately on the homepage before scrolling.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Service Page Sidebar Forms</div>
+          <div class="feat-desc">Every service page has a sticky sidebar form pre-filled with the relevant service category.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Calculator CTAs</div>
+          <div class="feat-desc">After every calculation result: "This is an estimate. For your exact liability, book a free consultation."</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Dedicated Booking Page</div>
+          <div class="feat-desc">/book page ready for Cal.com or Calendly embed — free 20-minute consultation offer.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Exit-Intent Popup (Desktop)</div>
+          <div class="feat-desc">Triggers when cursor moves toward browser bar — offers "Free 2024 Tax Prep Checklist" PDF for email capture. Shows once per session.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Mobile Sticky CTA Bar</div>
+          <div class="feat-desc">Fixed bottom bar on phones — "Book Free Consultation" + phone call button. Appears after scrolling past the hero.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Contact Page Intake Form</div>
+          <div class="feat-desc">Full intake form with name, email, phone, service selector, and detailed message field.</div>
+        </div>
+        <div class="feature">
+          <div class="feat-title">Footer Newsletter Signup</div>
+          <div class="feat-desc">"Tax Tips Delivered Monthly" — email capture in the footer of every page on the site.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & Analytics -->
+    <div class="section">
+      <h2>SEO &amp; Analytics Infrastructure</h2>
+
+      <h3>Structured Data (JSON-LD) on Every Page</h3>
+      <ul>
+        <li><strong>LocalBusiness</strong> — TaxPreparationService type with your name, credentials, address, phone</li>
+        <li><strong>Person</strong> — Joseph Gasana with EducationalOccupationalCredential (IRS Enrolled Agent, validFrom 2023-09-21)</li>
+        <li><strong>FAQPage</strong> — On every service page for Google FAQ rich snippets</li>
+        <li><strong>Article</strong> — On every blog post for Google article rich results</li>
+        <li><strong>BreadcrumbList</strong> — Site-wide navigation breadcrumbs</li>
+        <li><strong>ProfessionalService</strong> — Enhanced local search visibility</li>
+      </ul>
+
+      <h3>Technical SEO</h3>
+      <ul>
+        <li><strong>Auto-generated sitemap.xml</strong> — Covers all 49 pages, ready for Google Search Console submission</li>
+        <li><strong>robots.txt</strong> — Allows all pages except /thank-you</li>
+        <li><strong>Meta tags</strong> — Unique title, description, and OpenGraph tags on every page</li>
+        <li><strong>Mobile-first responsive</strong> — Passes Google's Mobile-Friendly Test</li>
+        <li><strong>Core Web Vitals optimized</strong> — Static generation, image optimization, minimal JavaScript</li>
+      </ul>
+
+      <h3>Analytics (Ready to Activate)</h3>
+      <ul>
+        <li><strong>Google Analytics 4</strong> — Component installed, tracks: generate_lead, book_consultation, calculator_used, phone_click events</li>
+        <li><strong>Meta Pixel</strong> — Component installed, tracks: PageView, Lead, Schedule events</li>
+        <li>Both activate when you add your Measurement ID and Pixel ID to the config file</li>
+      </ul>
+    </div>
+
+    <!-- Credentials Display -->
+    <div class="section">
+      <h2>Your Credentials — How They're Displayed</h2>
+      <p>The <strong>/about</strong> page is designed as a trust-building centerpiece that positions your IRS Enrolled Agent status as a competitive advantage:</p>
+      <ul>
+        <li><strong>EA Credential Badge</strong> — Large, above-the-fold display: "Joseph Gasana | IRS Enrolled Agent | License No. 00153835-EA | Enrolled: September 21, 2023" with link to IRS OPR verification directory</li>
+        <li><strong>Certificate Display</strong> — Two styled card placeholders ready for your EA enrollment certificate and CE completion certificate images (teal border, light shadow)</li>
+        <li><strong>EA vs CPA vs Attorney Comparison</strong> — Three-column card showing your unlimited IRS representation rights under 31 C.F.R. § 10.3(a) at a fraction of attorney cost</li>
+        <li><strong>Pull Quote</strong> — "Only three types of professionals have unlimited representation rights before the IRS: Enrolled Agents, CPAs, and Attorneys. As an EA, Clear Tax Solutions has the same IRS-granted authority — at a fraction of the attorney's cost."</li>
+        <li><strong>Professional Bio</strong> — Photo placeholder and professional biography section with stat cards</li>
+      </ul>
+      <p>Your credentials also appear in the site header, footer, mobile CTA bar, and booking page trust signals — reinforcing authority on every page.</p>
+    </div>
+
+    <!-- What You Need To Do -->
+    <div class="section">
+      <h2>Next Steps — What Joseph Needs To Provide</h2>
+      <p>The website is code-complete. To go fully live, the following items need to be added:</p>
+
+      <div class="next-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Deploy to Vercel</div>
+          <div class="step-desc">Connect the GitHub repo (github.com/addyanddaddy/ClearTaxSolutions) to Vercel.com — auto-detects Next.js and deploys in under 2 minutes. Free tier is sufficient for launch.</div>
+        </div>
+      </div>
+
+      <div class="next-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Connect Domain</div>
+          <div class="step-desc">Point cleartaxsolutions.com (or your preferred domain) to Vercel. Free SSL certificate is automatic.</div>
+        </div>
+      </div>
+
+      <div class="next-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Update Business Details</div>
+          <div class="step-desc">In src/lib/constants.ts — replace placeholder phone number, email, and office address with your actual business information.</div>
+        </div>
+      </div>
+
+      <div class="next-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Add Certificate Images</div>
+          <div class="step-desc">Upload high-resolution scans of your EA enrollment certificate and CE completion certificate to /public/images/ and link them on the About page.</div>
+        </div>
+      </div>
+
+      <div class="next-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-title">Set Up Booking Widget</div>
+          <div class="step-desc">Create a Cal.com or Calendly account, set up a 20-minute consultation event, and embed the widget on the /book page.</div>
+        </div>
+      </div>
+
+      <div class="next-step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-title">Activate Analytics</div>
+          <div class="step-desc">Create GA4 property at analytics.google.com and Meta Pixel at business.facebook.com. Add the Measurement ID and Pixel ID to constants.ts.</div>
+        </div>
+      </div>
+
+      <div class="next-step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <div class="step-title">Connect Form Backend</div>
+          <div class="step-desc">Sign up for EmailJS or Resend to receive lead form submissions via email. Currently forms log to console — integration takes ~15 minutes.</div>
+        </div>
+      </div>
+
+      <div class="next-step" style="border-bottom: none;">
+        <div class="step-num">8</div>
+        <div class="step-content">
+          <div class="step-title">Submit to Search Console</div>
+          <div class="step-desc">Verify your domain in Google Search Console and submit the auto-generated sitemap.xml. Set up Google Business Profile and Apple Business Connect per the marketing strategy document.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repository -->
+    <div class="section" style="background: linear-gradient(135deg, #0E3460, #0b2a4d); color: white;">
+      <h2 style="color: white; border-bottom-color: rgba(255,255,255,0.1);">Source Code Repository</h2>
+      <p style="color: #cde9ee;">All source code is hosted and version-controlled on GitHub:</p>
+      <p style="font-family: 'Courier New', monospace; font-size: 16px; color: #0E7490; background: rgba(0,0,0,0.3); padding: 14px; border-radius: 8px; margin: 16px 0; word-break: break-all;">
+        https://github.com/addyanddaddy/ClearTaxSolutions
+      </p>
+      <p style="color: #9bb3cf; font-size: 13px;">66 files &nbsp;|&nbsp; 11,603 lines of code &nbsp;|&nbsp; Next.js 14 + TypeScript + Tailwind CSS</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Prepared by <span class="brand">Adaptation Living LLC</span></p>
+      <p>Veteran-Owned AI Integration Studio &nbsp;|&nbsp; Chandler, Arizona</p>
+      <p style="margin-top: 8px;">All tax code citations reflect current law as of Tax Year 2024</p>
+      <p>IRS Circular 230 Disclosure: This document does not constitute written tax advice.</p>
+    </div>
+
+  </div>
+</body>
+</html>

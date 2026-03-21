@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import GoogleAnalytics from "@/components/ui/GoogleAnalytics";
 import MetaPixel from "@/components/ui/MetaPixel";
-import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
-import MobileStickyBar from "@/components/ui/MobileStickyBar";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -94,11 +91,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <GoogleAnalytics />
         <MetaPixel />
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <MobileStickyBar />
-        <ExitIntentPopup />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
