@@ -98,6 +98,10 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-2 text-navy-100">
                 <p className="flex items-center gap-2 justify-center lg:justify-start">
+                  <Shield className="w-5 h-5 text-teal-400 flex-shrink-0" />
+                  <span className="font-semibold text-teal-300">{SITE_CONFIG.irsExperience}</span>
+                </p>
+                <p className="flex items-center gap-2 justify-center lg:justify-start">
                   <GraduationCap className="w-5 h-5 text-teal-400 flex-shrink-0" />
                   {SITE_CONFIG.education}
                 </p>
@@ -461,12 +465,14 @@ export default function AboutPage() {
                 <div className="mt-6 space-y-4 text-gray-700 leading-relaxed">
                   <p>
                     Joseph Gasana is a federally licensed IRS Enrolled Agent,
-                    holds a <strong>Master&apos;s degree from the University of Arizona</strong>,
-                    and is the founder of Clear Tax Solutions. With a deep commitment to
-                    helping individuals and businesses navigate the complexities
-                    of the U.S. tax system, Joseph provides expert tax
-                    preparation, strategic tax planning, and full-scope IRS
-                    representation services.
+                    <strong>former IRS Tax Agent</strong>, and holds a
+                    <strong>Master&apos;s degree from the University of Arizona</strong>.
+                    As the founder of Clear Tax Solutions, Joseph brings a rare
+                    combination of inside IRS experience and advanced education
+                    to every client engagement. Having worked within the IRS,
+                    he understands exactly how the agency operates — how audits
+                    are selected, how cases are reviewed, and what the IRS looks
+                    for. That insider knowledge now works for you.
                   </p>
                   <p>
                     Originally from East Africa, Joseph brings a unique

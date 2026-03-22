@@ -4,6 +4,7 @@ export const SITE_CONFIG = {
   owner: "Joseph Gasana",
   credential: "IRS Enrolled Agent",
   education: "Master's Degree, University of Arizona",
+  irsExperience: "Former IRS Tax Agent",
   licenseNo: "00153835-EA",
   enrolledDate: "September 21, 2023",
   languages: ["English", "Kinyarwanda", "Swahili", "French"],
@@ -96,9 +97,9 @@ export const NAV_LINKS = [
 ] as const;
 
 export const TRUST_SIGNALS = [
+  "Former IRS Tax Agent",
   "IRS Licensed Enrolled Agent",
   "Master's Degree — University of Arizona",
-  "Audit Representation Authorized",
   "Multilingual: English, Kinyarwanda, Swahili, French",
 ] as const;
 
