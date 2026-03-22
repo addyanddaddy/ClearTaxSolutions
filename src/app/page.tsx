@@ -125,9 +125,9 @@ export default function HomePage() {
                 </span>
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-navy-100 max-w-xl">
-                Clear Tax Solutions — Individual &amp; Business Tax Prep, IRS
-                Audit Defense, and Tax Debt Resolution. Licensed. Authorized.
-                Local.
+                Clear Tax Solutions — Helping individuals and small businesses
+                resolve their tax problems. Tax Prep, IRS Audit Defense, and
+                Tax Debt Resolution. Licensed. Authorized. Local.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Link href="/book" className="btn-primary text-lg px-8 py-4">

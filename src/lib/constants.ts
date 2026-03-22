@@ -3,18 +3,20 @@ export const SITE_CONFIG = {
   tagline: "Licensed. Authorized. Local.",
   owner: "Joseph Gasana",
   credential: "IRS Enrolled Agent",
-  education: "Master's Degree, University of Arizona",
+  designation: "EA, MSA",
+  education: "Master of Science in Accounting (MSA), University of Arizona",
   irsExperience: "Former IRS Tax Agent",
+  title: "Tax Resolution Specialist",
   licenseNo: "00153835-EA",
   enrolledDate: "September 21, 2023",
   languages: ["English", "Kinyarwanda", "Swahili", "French"],
-  phone: "(555) 000-0000", // Replace with actual phone
-  email: "info@cleartaxsolutions.com",
+  phone: "(480) 930-9561",
+  email: "cleartaxsolutions18@gmail.com",
   address: {
-    street: "123 Main Street", // Replace with actual address
-    city: "Your City",
+    street: "3030 N. Central Ave. Ste. 507",
+    city: "Phoenix",
     state: "AZ",
-    zip: "85000",
+    zip: "85012",
   },
   social: {
     facebook: "https://facebook.com/cleartaxsolutions",
@@ -99,7 +101,7 @@ export const NAV_LINKS = [
 export const TRUST_SIGNALS = [
   "Former IRS Tax Agent",
   "IRS Licensed Enrolled Agent",
-  "Master's Degree — University of Arizona",
+  "MSA — University of Arizona",
   "Multilingual: English, Kinyarwanda, Swahili, French",
 ] as const;
 

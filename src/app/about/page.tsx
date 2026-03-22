@@ -90,10 +90,10 @@ export default function AboutPage() {
                 Credentials &amp; Qualifications
               </span>
               <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                {SITE_CONFIG.owner}
+                {SITE_CONFIG.owner}, {SITE_CONFIG.designation}
               </h1>
               <p className="mt-2 text-xl text-teal-300 font-medium">
-                {SITE_CONFIG.credential}
+                {SITE_CONFIG.title} | {SITE_CONFIG.credential}
               </p>
 
               <div className="mt-6 space-y-2 text-navy-100">
@@ -453,10 +453,10 @@ export default function AboutPage() {
                   Meet Your Tax Professional
                 </span>
                 <h2 className="mt-2 text-3xl font-bold text-navy-500">
-                  {SITE_CONFIG.owner}
+                  {SITE_CONFIG.owner}, {SITE_CONFIG.designation}
                 </h2>
                 <p className="mt-1 text-teal-500 font-medium">
-                  {SITE_CONFIG.credential} | {SITE_CONFIG.education}
+                  {SITE_CONFIG.title} | {SITE_CONFIG.credential} | {SITE_CONFIG.education}
                 </p>
                 <p className="mt-1 text-gray-500 text-sm">
                   License No. {SITE_CONFIG.licenseNo}
@@ -466,7 +466,7 @@ export default function AboutPage() {
                   <p>
                     Joseph Gasana is a federally licensed IRS Enrolled Agent,
                     <strong>former IRS Tax Agent</strong>, and holds a
-                    <strong>Master&apos;s degree from the University of Arizona</strong>.
+                    <strong>Master of Science in Accounting (MSA) from the University of Arizona</strong>.
                     As the founder of Clear Tax Solutions, Joseph brings a rare
                     combination of inside IRS experience and advanced education
                     to every client engagement. Having worked within the IRS,

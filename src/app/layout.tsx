@@ -66,12 +66,20 @@ export default function RootLayout({
               description:
                 "Professional tax preparation, IRS audit representation, and tax debt resolution by IRS Enrolled Agent Joseph Gasana.",
               url: "https://cleartaxsolutions.com",
-              telephone: "(555) 000-0000",
-              email: "info@cleartaxsolutions.com",
+              telephone: "(480) 930-9561",
+              email: "cleartaxsolutions18@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "3030 N. Central Ave. Ste. 507",
+                addressLocality: "Phoenix",
+                addressRegion: "AZ",
+                postalCode: "85012",
+                addressCountry: "US",
+              },
               founder: {
                 "@type": "Person",
                 name: "Joseph Gasana",
-                jobTitle: "IRS Enrolled Agent",
+                jobTitle: "Tax Resolution Specialist",
                 alumniOf: {
                   "@type": "CollegeOrUniversity",
                   name: "University of Arizona",
@@ -89,7 +97,7 @@ export default function RootLayout({
                   },
                   {
                     "@type": "EducationalOccupationalCredential",
-                    credentialCategory: "Master's Degree",
+                    credentialCategory: "Master of Science in Accounting (MSA)",
                     educationalLevel: "Master's",
                     recognizedBy: {
                       "@type": "CollegeOrUniversity",
