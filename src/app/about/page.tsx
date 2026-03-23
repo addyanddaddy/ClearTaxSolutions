@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   BadgeCheck,
   CheckCircle2,
@@ -435,15 +436,15 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-3 gap-8 items-start">
               {/* Photo Placeholder */}
               <div className="md:col-span-1">
-                <div className="aspect-[3/4] bg-gray-200 rounded-xl flex items-center justify-center">
-                  <div className="text-center text-gray-400">
-                    <div className="w-20 h-20 rounded-full bg-gray-300 mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-gray-500">
-                        JG
-                      </span>
-                    </div>
-                    <p className="text-sm font-medium">Professional Photo</p>
-                  </div>
+                <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/joseph-gasana.png"
+                    alt="Joseph Gasana, EA, MSA — IRS Enrolled Agent and founder of Clear Tax Solutions"
+                    width={400}
+                    height={533}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
                 </div>
               </div>
 
